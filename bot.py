@@ -10,6 +10,7 @@ from discord.ext import commands, tasks
 
 # ================== CONFIG ==================
 
+TOKEN = os.getenv("DISCORD_TOKEN")
 DATA_FILE = "bot_data.json"
 POLL_INTERVAL_SECONDS = 300  # 5 minutes
 ALLOWED_ROLE_NAMES = {"Admin", "Moderator", "Staff"}
@@ -416,4 +417,5 @@ async def test_release(ctx: commands.Context):
 if __name__ == "__main__":
     if not TOKEN:
         raise RuntimeError("DISCORD_BOT_TOKEN not set in code.")
+
     bot.run(TOKEN)
